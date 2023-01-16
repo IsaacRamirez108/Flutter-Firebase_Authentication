@@ -33,11 +33,26 @@ class MyHomePage extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
                 colors: [
-                  Colors.blue,
-                  Colors.red,
+                  // Color(0xFF1a1e35),
+                  // Color(0xFF1c283f),
+                  // Color(0xFF1f3348),
+                  // Color(0xFF243d50),
+                  // Color(0xFF2a4858),
+                  // Backwards
+                  Color(0xFF243d50),
+                  Color(0xFF1f3348),
+                  Color(0xFF1c283f),
+                  Color(0xFF1a1e35),
+                  Color(0xFF000000),
+                  // 0xFF1a1e35
+                  // 0xFF1c283f
+                  // 0xFF1f3348
+                  // 0xFF243d50
+                  // 0xFF2a4858
+
                 ],
               )
           ),
