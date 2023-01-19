@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_frist_app/Screens/signup_screen.dart';
 import '../reusable_widgets/reusable_widget.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -44,6 +45,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 20,
                 ),
                 reusableTextField("Enter Password", Icons.lock_outline, false, _passwordTextController),
+                const SizedBox(
+                  height: 10,
+                ),
+                signInSignUpButton(context, true, () {}),
+                signUpOption()
               ],
             ),
           ),
@@ -51,4 +57,27 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
+  Row signUpOption() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Don't have account?",
+            style: TextStyle(color: Colors.white70)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const SignUpScreen()));
+          },
+          child: const Text(
+            "  Sign Up",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        )
+      ],
+    );
+  }
+
+
+
 }
