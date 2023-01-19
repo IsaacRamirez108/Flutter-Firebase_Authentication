@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_frist_app/Screens/signin_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MyHomePage(),
+      home: const SignInScreen(),
     );
   }
 }
@@ -26,8 +28,12 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // This will allow app bar & background color be one seamless gradient color
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('DENARI'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Image.asset('assets/White-Lettering-Logo.png', height: 32),
       ),
       body: Center(
         child: Container(
@@ -36,35 +42,14 @@ class MyHomePage extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  // Color(0xFF1a1e35),
-                  // Color(0xFF1c283f),
-                  // Color(0xFF1f3348),
-                  // Color(0xFF243d50),
-                  // Color(0xFF2a4858),
-                  // Backwards
-                  Color(0xFF243d50),
                   Color(0xFF1f3348),
                   Color(0xFF1c283f),
                   Color(0xFF1a1e35),
                   Color(0xFF000000),
-                  // 0xFF1a1e35
-                  // 0xFF1c283f
-                  // 0xFF1f3348
-                  // 0xFF243d50
-                  // 0xFF2a4858
-
                 ],
               )
           ),
           child: const Center(
-            child: Text(
-              'Hello Gradient!',
-              style: TextStyle(
-                fontSize: 48.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
           ),
         ),
       ),
