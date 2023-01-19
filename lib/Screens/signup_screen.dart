@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../reusable_widgets/reusable_widget.dart';
+import 'home_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
-  // final TextEditingController _passwordTextController = TextEditingController();
-  // final TextEditingController _emailTextController = TextEditingController();
-  // final TextEditingController _userNameTextController = TextEditingController();
+
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController _passwordTextController = TextEditingController();
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _firstNameTextController = TextEditingController();
+  final TextEditingController _lastNameTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,43 +40,72 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Color(0xFF1a1e35),
               Color(0xFF000000),
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-
-        // Stack allows a new container to be created within the existing body container
-      child: Stack(children: [
-          Container(
-          margin: const EdgeInsets.all(30),
-          // This is padding to position the text where I want it to be
-            padding: const EdgeInsets.only(left: 5,top: 110,right: 0,bottom: 0),
-            child: const Text.rich(
-                TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: "Hello There!",
-                          style: TextStyle(fontSize: 30, color: Colors.white)
-                      ),
-                    ])
-                )
-              ),
-          Container(
-              margin: const EdgeInsets.all(30),
-              // This is padding to position the text where I want it to be
-              padding: const EdgeInsets.only(left: 5,top: 155,right: 0,bottom: 0),
-              child: const Text.rich(
-                  TextSpan(
-                      children: <TextSpan>[
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(
+              20, MediaQuery.of(context).size.height * 0.1, 20, 0),
+          child: Column(
+            children: <Widget>[
+              Stack(children: [
+                Container(
+                    margin: const EdgeInsets.all(20),
+                    // This is padding to position the text where I want it to be
+                    padding: const EdgeInsets.only(left: 3,top: 10, right: 0, bottom: 0),
+                    child: const Text.rich(
                         TextSpan(
-                            text: "Let's start with some basic information to get you started.",
-                            style: TextStyle(fontSize: 19, color: Colors.white)
-                        )
-                      ])
-                  )
-              )],
-            ),
-
-
-
-
-
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: "Hello There!",
+                                  style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold)
+                              ),
+                            ])
+                    )
+                ),
+                Container(
+                    //margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 20, left: 18, bottom: 50, right: 20),
+                    // This is padding to position the text where I want it to be
+                    padding: const EdgeInsets.only(left: 3, top: 50, right: 0, bottom: 0),
+                    child: const Text.rich(
+                        TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: "Let's start with some basic information to get you started.",
+                                  style: TextStyle(fontSize: 18, color: Colors.white)
+                              )
+                            ])
+                    )
+                )
+              ],),
+              reusableTextField("First Name", Icons.person_outline, false, _firstNameTextController),
+              const SizedBox(
+                height: 20,
+              ),
+              reusableTextField("Last Name", Icons.person_outline, false, _lastNameTextController),
+              const SizedBox(
+                height: 20,
+              ),
+              reusableTextField("Enter Email", Icons.email_outlined, false, _emailTextController),
+              const SizedBox(
+                height: 20,
+              ),
+              reusableTextField("Enter Password", Icons.lock_outline, false, _passwordTextController),
+              const SizedBox(
+                height: 200,
+              ),
+              // reusableTextField("Enter UserName", Icons.person_outline, false, _numberTextController),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              signInSignUpButton(context, false, () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+              }),
+              // signUpOption()
+            ],
+          ),
+        ),
+      ),
 
 
       )
