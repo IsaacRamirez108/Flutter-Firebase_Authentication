@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -62,8 +64,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     )
                 ),
                 Container(
-                    //margin: const EdgeInsets.all(20),
-                    margin: const EdgeInsets.only(top: 20, left: 18, bottom: 50, right: 20),
+                    //margin: const EdgeInsets.only(top: 10),
+                    margin: const EdgeInsets.only(top: 30, left: 18, bottom: 50, right: 20),
                     // This is padding to position the text where I want it to be
                     padding: const EdgeInsets.only(left: 3, top: 50, right: 0, bottom: 0),
                     child: const Text.rich(
@@ -97,10 +99,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // const SizedBox(
               //   height: 20,
               // ),
-              signInSignUpButton(context, false, () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()));
-              }),
+              firebaseUIButton(context, "Sign Up", () {
+                FirebaseAuth.instance
+                    .createUserWithEmailAndPassword(
+                    email: _emailTextController.text,
+                    password: _passwordTextController.text)
+                    .then((value) {
+                  print("Created New Account");
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                }).onError((error, stackTrace) {
+                  print("Error ${error.toString()}");
+                });
+              })
               // signUpOption()
             ],
           ),
