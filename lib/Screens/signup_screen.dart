@@ -91,7 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(
                 height: 20,
               ),
-              reusableTextField("Enter Password", Icons.lock_outline, false, _passwordTextController),
+              reusablePasswordTextField("Enter Password", Icons.lock_outline, false, _passwordTextController),
               const SizedBox(
                 height: 200,
               ),
@@ -99,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // const SizedBox(
               //   height: 20,
               // ),
-              firebaseUIButton(context, "Sign Up", () {
+              signInSignUpButton(context, false, () {
                 FirebaseAuth.instance
                     .createUserWithEmailAndPassword(
                     email: _emailTextController.text,
@@ -107,12 +107,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     .then((value) {
                   print("Created New Account");
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => const HomeScreen()));
                 }).onError((error, stackTrace) {
                   print("Error ${error.toString()}");
                 });
               })
-              // signUpOption()
             ],
           ),
         ),

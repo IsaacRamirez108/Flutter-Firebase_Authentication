@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:my_frist_app/Screens/signup_screen.dart';
+import 'package:my_frist_app/Screens/welcome_screen.dart';
 import '../reusable_widgets/reusable_widget.dart';
+import 'home_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -12,6 +14,8 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _emailTextController = TextEditingController();
+  bool passenable = true; //boolean value to track password view enable disable.
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,15 +44,26 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-                reusableTextField("Enter UserName", Icons.person_outline, false, _emailTextController),
+                reusableTextField("Enter Email", Icons.person_outline, false, _emailTextController),
                 const SizedBox(
                   height: 20,
                 ),
-                reusableTextField("Enter Password", Icons.lock_outline, false, _passwordTextController),
+                reusablePasswordTextField("Enter Password", Icons.lock_outline, false, _passwordTextController),
                 const SizedBox(
                   height: 10,
                 ),
-                signInSignUpButton(context, true, () {}),
+                signInSignUpButton(context, false, () {
+                  FirebaseAuth.instance
+                      .signInWithEmailAndPassword(
+                      email: _emailTextController.text,
+                      password: _passwordTextController.text)
+                      .then((value) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const WelcomeScreen()));
+                  }).onError((error, stackTrace) {
+                    print("Error ${error.toString()}");
+                  });
+                }),
                 signUpOption()
               ],
             ),
@@ -57,7 +72,6 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
-
   Row signUpOption() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
         GestureDetector(
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const SignUpScreen()));
+                MaterialPageRoute(builder: (context) => const WelcomeScreen()));
           },
           child: const Text(
             "  Sign Up",
@@ -77,7 +91,4 @@ class _SignInScreenState extends State<SignInScreen> {
       ],
     );
   }
-
-
-
 }
