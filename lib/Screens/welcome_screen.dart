@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:my_frist_app/Screens/signup_screen.dart';
 import '../reusable_widgets/reusable_widget.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -10,7 +10,8 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-
+  final TextEditingController _passwordTextController = TextEditingController();
+  final TextEditingController _emailTextController = TextEditingController();
   final image = Image.asset('assets/White-Lettering-Logo.png', height: 25,);
 
   @override
@@ -40,17 +41,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(48, MediaQuery.of(context).size.height * 0.15, 20, 0),
-              child: const Text("Welcome To DENARI", style: TextStyle(fontSize: 35, color: Colors.white, fontFamily: 'Raleway', fontWeight: FontWeight.w200)),
+              padding: EdgeInsets.fromLTRB(20, MediaQuery.of(context).size.height * 0.15, 20, 0),
+              child: Column(
+                children: <Widget>[
+                  const Text("Welcome To DENARI", style: TextStyle(fontSize: 35, color: Colors.white, fontFamily: 'Raleway', fontWeight: FontWeight.w200)),
+                  continueButton(context, false, () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const SignUpScreen()));
+                    }),
+                ]
+              ),
             ),
           ),
-        ),
+        )
       );
     }
-
-
-
-
 }
 
 

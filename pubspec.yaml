@@ -34,6 +34,8 @@ dependencies:
   firebase_auth: ^4.2.5
   firebase_core: ^2.4.1
   firebase_database: ^10.0.9
+  flutter_mapbox_autocomplete: ^2.0.0
+  mapbox_autocomplete_search_widget: ^0.0.6
 
 
 
