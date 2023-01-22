@@ -1,6 +1,7 @@
-# my_frist_app
+# Denari
 
-A new Flutter project.
+A new project currently in development that will allow users to report rental payments.
+Project is still in development.
 
 ## Getting Started
 
