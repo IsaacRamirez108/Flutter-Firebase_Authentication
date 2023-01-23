@@ -27,6 +27,10 @@ class _LinkPortalScreenState extends State<LinkPortalScreen> {
               Color(0xFF000000),
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
       ),
+
+
+
+
     );
   }
 }

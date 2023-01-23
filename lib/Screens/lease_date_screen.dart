@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pattern_formatter/date_formatter.dart';
+import 'package:my_frist_app/Screens/estimated_rent_screen.dart';
 import '../reusable_widgets/reusable_widget.dart';
 
 class LeaseDatesScreen extends StatefulWidget {
@@ -87,6 +87,14 @@ class _LeaseDatesScreenState extends State<LeaseDatesScreen> {
                 const SizedBox(
                   height: 20,
                 ),
+
+                Container(
+                  margin: const EdgeInsets.fromLTRB(0, 270, 0, 20),
+                  child: continueButton(context, false, () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const EstimatedRentScreen()));
+                  }),
+                )
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_frist_app/Screens/lease_date_screen.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -98,19 +99,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // const SizedBox(
               //   height: 20,
               // ),
-              signInSignUpButton(context, false, () {
-                FirebaseAuth.instance
-                    .createUserWithEmailAndPassword(
-                    email: _emailTextController.text,
-                    password: _passwordTextController.text)
-                    .then((value) {
-                  print("Created New Account");
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const HomeScreen()));
-                }).onError((error, stackTrace) {
-                  print("Error ${error.toString()}");
-                });
-              })
+              Container(
+                  margin: const EdgeInsets.fromLTRB(0, 18, 0, 0),
+                  child: continueButton(context, false, () {
+                    // FirebaseAuth.instance
+                    //     .createUserWithEmailAndPassword(
+                    //     email: _emailTextController.text,
+                    //     password: _passwordTextController.text)
+                    //     .then((value) {
+                    //   print("Created New Account");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const LeaseDatesScreen()));
+                    // }).onError((error, stackTrace) {
+                    //   print("Error ${error.toString()}");
+                    // });
+                  })
+              )
             ],
           ),
         ),

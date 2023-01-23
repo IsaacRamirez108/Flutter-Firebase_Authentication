@@ -43,10 +43,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Column(
                 children: <Widget>[
                   const Text("Welcome To DENARI", style: TextStyle(fontSize: 35, color: Colors.white, fontFamily: 'Raleway', fontWeight: FontWeight.w200)),
-                  continueButton(context, false, () {
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(0, 300, 0, 20),
+                    child: continueButton(context, false, () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => const SignUpScreen()));
                     }),
+                  )
                 ]
               ),
             ),
