@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_frist_app/Screens/lease_date_screen.dart';
 import 'package:my_frist_app/Screens/signin_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -26,21 +27,21 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-        home: //const SignInScreen(),
-      FutureBuilder(
-        future: _fbApp,
-        builder: (context, snapshot) {
-          if (snapshot.hasError){
-            return const Text("Something went wrong");
-          } else if (snapshot.hasData){
-            return const SignInScreen();
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        },
-      )
+        home: const LeaseDatesScreen(),
+      // FutureBuilder(
+      //   future: _fbApp,
+      //   builder: (context, snapshot) {
+      //     if (snapshot.hasError){
+      //       return const Text("Something went wrong");
+      //     } else if (snapshot.hasData){
+      //       return const SignInScreen();
+      //     } else {
+      //       return const Center(
+      //         child: CircularProgressIndicator(),
+      //       );
+      //     }
+      //   },
+      // )
       //const SignInScreen(),
     );
   }

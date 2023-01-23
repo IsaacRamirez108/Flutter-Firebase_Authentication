@@ -10,8 +10,6 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  final TextEditingController _passwordTextController = TextEditingController();
-  final TextEditingController _emailTextController = TextEditingController();
   final image = Image.asset('assets/White-Lettering-Logo.png', height: 25,);
 
   @override

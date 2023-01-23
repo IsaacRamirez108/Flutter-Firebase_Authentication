@@ -50,13 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
-  dio:
-    dependency: transitive
+  date_format:
+    dependency: "direct main"
     description:
-      name: dio
+      name: date_format
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.6"
+    version: "2.0.7"
   fake_async:
     dependency: transitive
     description:
@@ -139,20 +139,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
-  flutter_mapbox_autocomplete:
-    dependency: "direct main"
-    description:
-      name: flutter_mapbox_autocomplete
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
-  flutter_riverpod:
-    dependency: transitive
-    description:
-      name: flutter_riverpod
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -163,13 +149,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  http:
-    dependency: transitive
-    description:
-      name: http
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.13.5"
   http_parser:
     dependency: transitive
     description:
@@ -198,13 +177,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
-  mapbox_autocomplete_search_widget:
-    dependency: "direct main"
-    description:
-      name: mapbox_autocomplete_search_widget
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.6"
   matcher:
     dependency: transitive
     description:
@@ -233,17 +205,17 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
+  pattern_formatter:
+    dependency: "direct main"
+    description:
+      name: pattern_formatter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   plugin_platform_interface:
     dependency: transitive
     description:
       name: plugin_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.3"
-  riverpod:
-    dependency: transitive
-    description:
-      name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
@@ -266,13 +238,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0"
-  state_notifier:
-    dependency: transitive
-    description:
-      name: state_notifier
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.2+1"
   stream_channel:
     dependency: transitive
     description:
@@ -308,62 +273,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
-  url_launcher:
-    dependency: transitive
-    description:
-      name: url_launcher
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.1.8"
-  url_launcher_android:
-    dependency: transitive
-    description:
-      name: url_launcher_android
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.0.23"
-  url_launcher_ios:
-    dependency: transitive
-    description:
-      name: url_launcher_ios
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "6.0.18"
-  url_launcher_linux:
-    dependency: transitive
-    description:
-      name: url_launcher_linux
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.2"
-  url_launcher_macos:
-    dependency: transitive
-    description:
-      name: url_launcher_macos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.2"
-  url_launcher_platform_interface:
-    dependency: transitive
-    description:
-      name: url_launcher_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.1"
-  url_launcher_web:
-    dependency: transitive
-    description:
-      name: url_launcher_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.14"
-  url_launcher_windows:
-    dependency: transitive
-    description:
-      name: url_launcher_windows
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.2"
   vector_math:
     dependency: transitive
     description:
@@ -373,4 +282,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.18.6 <3.0.0"
-  flutter: ">=3.0.0"
+  flutter: ">=1.20.0"

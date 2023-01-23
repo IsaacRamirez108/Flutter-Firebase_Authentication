@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '../reusable_widgets/reusable_widget.dart';
 import 'home_screen.dart';
