@@ -1,32 +1,185 @@
-import 'package:flutter/material.dart';
-
-class AddressVerificationScreen extends StatefulWidget {
-  const AddressVerificationScreen({Key? key}) : super(key: key);
-
-  @override
-  State<AddressVerificationScreen> createState() => _AddressVerificationScreenState();
-}
-
-class _AddressVerificationScreenState extends State<AddressVerificationScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color(0xFF1f3348),
-              Color(0xFF1c283f),
-              Color(0xFF1a1e35),
-              Color(0xFF000000),
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-      ),
-    );
-  }
-}
+// import 'package:address/address.dart';
+// import 'package:flutter/material.dart';
+//
+// void main() {
+//   runApp(const ExampleApp());
+// }
+//
+// class ExampleApp extends StatelessWidget {
+//   const ExampleApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(home: MainScreen());
+//   }
+// }
+//
+// class MainScreen extends StatefulWidget {
+//   const MainScreen({super.key});
+//
+//   @override
+//   _MainScreenState createState() => _MainScreenState();
+// }
+//
+// class _MainScreenState extends State<MainScreen> {
+//   final _countryController =
+//   TextEditingController.fromValue(const TextEditingValue(text: 'US'));
+//   final _formLangController =
+//   TextEditingController.fromValue(const TextEditingValue(text: 'en'));
+//
+//   final _nameController = TextEditingController();
+//   final _addressLine1Controller = TextEditingController();
+//   final _addressLine2Controller = TextEditingController();
+//   final _cityController = TextEditingController();
+//   final _zoneController = TextEditingController();
+//   final _postalCodeController = TextEditingController();
+//
+//   final _displayLangController =
+//   TextEditingController.fromValue(const TextEditingValue(text: 'en'));
+//
+//   Map<AddressFormField, TextEditingController> get _formFieldToControllerMap =>
+//       {
+//         AddressFormField.fullName: _nameController,
+//         AddressFormField.addressLine1: _addressLine1Controller,
+//         AddressFormField.addressLine2: _addressLine2Controller,
+//         AddressFormField.city: _cityController,
+//         AddressFormField.zone: _zoneController,
+//         AddressFormField.postalCode: _postalCodeController,
+//       };
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//     _countryController
+//         .addListener(() => setState(() => _zoneController.text = ''));
+//     _formLangController.addListener(() => setState(() {}));
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     final addressFormatter = AddressFormatter(_formLangController.text);
+//     final formFormat = addressFormatter.formatForm(_countryController.text);
+//
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Addresses example'),
+//       ),
+//       body: ListView(
+//         padding: const EdgeInsets.all(16),
+//         children: [
+//           TextField(
+//             controller: _countryController,
+//             textCapitalization: TextCapitalization.characters,
+//             decoration: const InputDecoration(
+//               labelText: 'Address country (ISO 3166-1 alpha-2)',
+//               helperText: 'US, CA, AU, PL, FR, IT, ES...',
+//             ),
+//           ),
+//           TextField(
+//             controller: _formLangController,
+//             textCapitalization: TextCapitalization.none,
+//             decoration: const InputDecoration(
+//               labelText: 'Form language (ISO 639-1)',
+//               helperText: 'en, fr, pl, es...',
+//             ),
+//           ),
+//           const Divider(height: 48),
+//           Column(
+//             crossAxisAlignment: CrossAxisAlignment.stretch,
+//             children: [
+//               for (final field in formFormat)
+//                 if (field.availableValues != null)
+//                   DropdownButtonFormField<String>(
+//                     value: _formFieldToControllerMap[field.type]!.text,
+//                     onChanged: (value) {
+//                       if (value == null) return;
+//                       _formFieldToControllerMap[field.type]!.text = value;
+//                     },
+//                     items: [
+//                       const DropdownMenuItem(value: '', child: SizedBox()),
+//                       for (final value in field.availableValues!.entries)
+//                         DropdownMenuItem(
+//                           value: value.key,
+//                           child: Text(value.value),
+//                         ),
+//                     ],
+//                     decoration: InputDecoration(
+//                       labelText: field.label,
+//                       helperText: field.description,
+//                     ),
+//                   )
+//                 else
+//                   TextField(
+//                     controller: _formFieldToControllerMap[field.type],
+//                     decoration: InputDecoration(
+//                       labelText: field.label,
+//                       helperText: field.description,
+//                     ),
+//                   ),
+//             ],
+//           ),
+//           const Divider(height: 48),
+//           Row(
+//             children: [
+//               Expanded(
+//                 child: TextField(
+//                   controller: _displayLangController,
+//                   textCapitalization: TextCapitalization.none,
+//                   decoration: const InputDecoration(
+//                     labelText: 'Display language (ISO 639-1)',
+//                     helperText: 'en, fr, pl, es...',
+//                   ),
+//                 ),
+//               ),
+//               const SizedBox(width: 16),
+//               ElevatedButton(
+//                 onPressed: () {
+//                   final formatter =
+//                   AddressFormatter(_displayLangController.text);
+//
+//                   final address = Address(
+//                     country: _countryController.text,
+//                     fullName: _nameController.text,
+//                     addressLine1: _addressLine1Controller.text,
+//                     addressLine2: _addressLine2Controller.text,
+//                     city: _cityController.text,
+//                     zone: _zoneController.text,
+//                     postalCode: _postalCodeController.text,
+//                   );
+//
+//                   final displayFormatted = formatter.formatDisplay(address);
+//
+//                   showModalBottomSheet(
+//                     context: context,
+//                     builder: (context) => Padding(
+//                       padding: const EdgeInsets.all(16),
+//                       child: Text(displayFormatted.join('\n')),
+//                     ),
+//                   );
+//                 },
+//                 child: const Text('FORMAT DISPLAY'),
+//               ),
+//             ],
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   @override
+//   void dispose() {
+//     _countryController.dispose();
+//     _formLangController.dispose();
+//
+//     _nameController.dispose();
+//     _addressLine1Controller.dispose();
+//     _addressLine2Controller.dispose();
+//     _cityController.dispose();
+//     _zoneController.dispose();
+//     _postalCodeController.dispose();
+//
+//     _displayLangController.dispose();
+//
+//     super.dispose();
+//   }
+// }

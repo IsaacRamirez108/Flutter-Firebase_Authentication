@@ -66,19 +66,30 @@ class _EstimatedRentScreenState extends State<EstimatedRentScreen> {
                                 )
                               ])
                       )
-                  )
+                  ),
+                  Container(
+                    //margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(left: 25,top: 180, right: 0, bottom: 5),
+                    child: const Text(
+                      'Monthly rent',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        fontSize: 15, color: Colors.white, fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
                 ],),
-                //Title(color: Colors.white, child: const Text("Hello")),
-                const Text("Monthly rent", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-                const SizedBox(
-                  height: 5,
-                ),
+                //const Text("Monthly rent", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                // const SizedBox(
+                //   height: 5,
+                // ),
                 reusableTextField("", Icons.attach_money_outlined, false, _estimatedRent),
                 const SizedBox(
                   height: 20,
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 375, 0, 20),
+                  margin: const EdgeInsets.fromLTRB(0, 390, 0, 20),
                   child: continueButton(context, false, () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const UploadLeaseScreen()));

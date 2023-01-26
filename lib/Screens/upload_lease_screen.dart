@@ -41,39 +41,22 @@ class _UploadLeaseScreenState extends State<UploadLeaseScreen> {
               children: <Widget>[
                 Stack(children: [
                   Container(
-                      margin: const EdgeInsets.all(20),
-                      // This is padding to position the text where I want it to be
-                      padding: const EdgeInsets.only(left: 0,top: 10, right: 0, bottom: 0),
-                      child: const Text.rich(
-                          TextSpan(
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: "Please submit a copy of your lease.",
-                                    style: TextStyle(fontSize: 23, color: Colors.white, fontWeight: FontWeight.bold)
-                                ),
-                              ])
-                      )
+                    //margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(left: 0,top: 25, right: 0, bottom: 0),
+                    child: const Text(
+                      'Please submit a copy of your lease agreement',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 23, color: Colors.white, fontWeight: FontWeight.bold
+                      ),
+                    ),
                   ),
                   Container(
                     //margin: const EdgeInsets.only(top: 10),
-                      margin: const EdgeInsets.only(top: 42, left: 18, bottom: 100, right: 20),
+                      margin: const EdgeInsets.only(top: 100, left: 18, bottom: 50, right: 20),
                       // This is padding to position the text where I want it to be
-                      padding: const EdgeInsets.only(left: 0, top: 50, right: 0, bottom: 0),
-                      child: const Text.rich(
-                          TextSpan(
-                              children: <TextSpan>[
-                                TextSpan(
-                                    text: "For faster verification, upload a copy of your lease. You can find this in your rental portal, if not contact your property manager for a copy.",
-                                    style: TextStyle(fontSize: 16, color: Colors.white)
-                                )
-                              ])
-                      )
-                  ),
-                  Container(
-                    //margin: const EdgeInsets.only(top: 10),
-                      margin: const EdgeInsets.only(top: 180, left: 18, bottom: 50, right: 20),
-                      // This is padding to position the text where I want it to be
-                      padding: const EdgeInsets.only(left: 110, top: 60, right: 110, bottom: 60),
+                      padding: const EdgeInsets.only(left: 110, top: 75, right: 110, bottom: 60),
                       decoration: const BoxDecoration(
                         color: Colors.white24,
                       ),
@@ -90,7 +73,7 @@ class _UploadLeaseScreenState extends State<UploadLeaseScreen> {
                 ],),
                 //Title(color: Colors.white, child: const Text("Hello")),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 280, 0, 20),
+                  margin: const EdgeInsets.fromLTRB(0, 355, 0, 20),
                   child: continueButton(context, false, () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const LinkPortalScreen()));

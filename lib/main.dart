@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_frist_app/Screens/estimated_rent_screen.dart';
-import 'package:my_frist_app/Screens/lease_date_screen.dart';
-import 'package:my_frist_app/Screens/signin_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:my_frist_app/Screens/upload_lease_screen.dart';
+import 'package:my_frist_app/Screens/dob_ssn_screen.dart';
+import 'package:my_frist_app/Screens/link_portal_screen.dart';
+import 'package:my_frist_app/Screens/signin_screen.dart';
+import 'package:my_frist_app/Screens/signup_screen.dart';
 
 
 Future<void> main() async {
@@ -83,3 +81,6 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
+
+

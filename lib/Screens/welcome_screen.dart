@@ -42,9 +42,89 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               padding: EdgeInsets.fromLTRB(20, MediaQuery.of(context).size.height * 0.15, 20, 0),
               child: Column(
                 children: <Widget>[
-                  const Text("Welcome To DENARI", style: TextStyle(fontSize: 35, color: Colors.white, fontFamily: 'Raleway', fontWeight: FontWeight.w200)),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(0, 300, 0, 20),
+                      //margin: const EdgeInsets.only(top: 5),
+                      //padding: const EdgeInsets.only(left: 0,top: 0, right: 0, bottom: 0),
+                      child: const Text.rich(
+                          TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: "Welcome To DENARI",
+                                    style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold)
+                                ),
+                              ])
+                      )
+                  ),
+                   Container(
+                      //margin: const EdgeInsets.all(20),
+                       margin: const EdgeInsets.only(top: 10),
+                      padding: const EdgeInsets.only(left: 0,top: 15, right: 0, bottom: 0),
+                       child: const Text(
+                         'DENARI helps renters build credit with the rent they already pay!',
+                         textAlign: TextAlign.center,
+                         style: TextStyle(
+                           fontSize: 20, color: Colors.white,
+                         ),
+                       ),
+                    ),
+                  Container(
+                    //margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(left: 0,top: 150, right: 0, bottom: 0),
+                    child: const Text(
+                      "Here's what to expect:",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    //margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(left: 0,top: 15, right: 60, bottom: 0),
+                    child: const Text(
+                      '1. Enter your personal information ',
+                      style: TextStyle(
+                        fontSize: 20, color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    //margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(left: 0,top: 15, right: 270, bottom: 0),
+                    child: const Text(
+                      '2. Checkout ',
+                      style: TextStyle(
+                        fontSize: 20, color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    //margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(left: 0,top: 15, right: 0, bottom: 0),
+                    child: const Text(
+                      '3. Denari verifies and reports your rent payments',
+                      style: TextStyle(
+                        fontSize: 20, color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    //margin: const EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(left: 0,top: 15, right: 0, bottom: 0),
+                    child: const Text(
+                      '4. Sit back and watch your credit score increase',
+                      style: TextStyle(
+                        fontSize: 20, color: Colors.white,
+                      ),
+                    ),
+                  ),
+                 Container(
+                    margin: const EdgeInsets.fromLTRB(0, 100, 0, 20),
                     child: continueButton(context, false, () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => const SignUpScreen()));

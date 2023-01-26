@@ -1,4 +1,6 @@
 PODS:
+  - address_search_field (5.0.0):
+    - Flutter
   - Firebase/Auth (10.3.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 10.3.0)
@@ -33,6 +35,14 @@ PODS:
     - FirebaseCore (~> 10.0)
     - leveldb-library (~> 1.22)
   - Flutter (1.0.0)
+  - google_maps_flutter_ios (0.0.1):
+    - Flutter
+    - GoogleMaps
+  - GoogleMaps (5.2.0):
+    - GoogleMaps/Maps (= 5.2.0)
+  - GoogleMaps/Base (5.2.0)
+  - GoogleMaps/Maps (5.2.0):
+    - GoogleMaps/Base
   - GoogleUtilities/AppDelegateSwizzler (7.11.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -50,13 +60,21 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (3.1.0)
   - leveldb-library (1.22.1)
+  - location (0.0.1):
+    - Flutter
+  - package_info_plus (0.4.5):
+    - Flutter
   - PromisesObjC (2.1.1)
 
 DEPENDENCIES:
+  - address_search_field (from `.symlinks/plugins/address_search_field/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
   - Flutter (from `Flutter`)
+  - google_maps_flutter_ios (from `.symlinks/plugins/google_maps_flutter_ios/ios`)
+  - location (from `.symlinks/plugins/location/ios`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
 
 SPEC REPOS:
   trunk:
@@ -65,12 +83,15 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreInternal
     - FirebaseDatabase
+    - GoogleMaps
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
     - PromisesObjC
 
 EXTERNAL SOURCES:
+  address_search_field:
+    :path: ".symlinks/plugins/address_search_field/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
@@ -79,8 +100,15 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_database/ios"
   Flutter:
     :path: Flutter
+  google_maps_flutter_ios:
+    :path: ".symlinks/plugins/google_maps_flutter_ios/ios"
+  location:
+    :path: ".symlinks/plugins/location/ios"
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
 
 SPEC CHECKSUMS:
+  address_search_field: baa1d1b1b47eb5445f26f8a7fb33885179f5b6de
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
   firebase_auth: 3bab991fe1df91c2f948156e9dee976e01a19ab9
   firebase_core: bf59c32d2e53814f558efa20840c1902fa2fe461
@@ -90,9 +118,13 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: e301297f4c15a17489e48ed722d733b1578e0c02
   FirebaseDatabase: d0732ba8aece0eccfa0cfb3ef540e7ba6fa1c6a6
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  google_maps_flutter_ios: 66201f392bf62d500f07670a30488a247b9bb5b9
+  GoogleMaps: 025272d5876d3b32604e5c080dc25eaf68764693
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  location: 3a2eed4dd2fab25e7b7baf2a9efefe82b512d740
+  package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
 
 PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3

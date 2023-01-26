@@ -89,7 +89,7 @@ class _LeaseDatesScreenState extends State<LeaseDatesScreen> {
                 ),
 
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 270, 0, 20),
+                  margin: const EdgeInsets.fromLTRB(0, 265, 0, 20),
                   child: continueButton(context, false, () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const EstimatedRentScreen()));
