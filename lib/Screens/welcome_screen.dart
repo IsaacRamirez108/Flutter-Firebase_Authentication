@@ -69,8 +69,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   Container(
                     //margin: const EdgeInsets.all(20),
-                    margin: const EdgeInsets.only(top: 10),
-                    padding: const EdgeInsets.only(left: 0,top: 150, right: 0, bottom: 0),
+                    margin: const EdgeInsets.only(top: 5),
+                    padding: const EdgeInsets.only(left: 0,top: 100, right: 0, bottom: 0),
                     child: const Text(
                       "Here's what to expect:",
                       textAlign: TextAlign.center,

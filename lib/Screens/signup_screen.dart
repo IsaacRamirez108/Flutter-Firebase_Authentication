@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_frist_app/Screens/dob_ssn_screen.dart';
-import 'package:my_frist_app/Screens/lease_date_screen.dart';
 import '../reusable_widgets/reusable_widget.dart';
-import 'home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
@@ -15,10 +13,12 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _firstNameTextController = TextEditingController();
   final TextEditingController _lastNameTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,20 +100,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // const SizedBox(
               //   height: 20,
               // ),
+
+
+              //Customer customer = new customer();
               Container(
                   margin: const EdgeInsets.fromLTRB(0, 18, 0, 0),
                   child: continueButton(context, false, () {
-                    // FirebaseAuth.instance
-                    //     .createUserWithEmailAndPassword(
-                    //     email: _emailTextController.text,
-                    //     password: _passwordTextController.text)
-                    //     .then((value) {
-                    //   print("Created New Account");
+                    FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                        email: _emailTextController.text,
+                        password: _passwordTextController.text)
+                        .then((value) {
+                      print("Created New Account");
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const DOBSSNScreen()));
-                    // }).onError((error, stackTrace) {
-                    //   print("Error ${error.toString()}");
-                    // });
+                    }.onError((error, stackTrace) {
+                      print("Error ${error.toString()}");
+                    }));
                   })
               )
             ],

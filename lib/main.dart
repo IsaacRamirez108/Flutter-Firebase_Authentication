@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:my_frist_app/Screens/dob_ssn_screen.dart';
-import 'package:my_frist_app/Screens/link_portal_screen.dart';
 import 'package:my_frist_app/Screens/signin_screen.dart';
-import 'package:my_frist_app/Screens/signup_screen.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,22 +23,22 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-        home: const SignInScreen(),
-      // FutureBuilder(
-      //   future: _fbApp,
-      //   builder: (context, snapshot) {
-      //     if (snapshot.hasError){
-      //       return const Text("Something went wrong");
-      //     } else if (snapshot.hasData){
-      //       return const SignInScreen();
-      //     } else {
-      //       return const Center(
-      //         child: CircularProgressIndicator(),
-      //       );
-      //     }
-      //   },
-      // )
-      //const SignInScreen(),
+        //home: const SignInScreen(),
+      home: FutureBuilder(
+        future: _fbApp,
+        builder: (context, snapshot) {
+          if (snapshot.hasError){
+            return const Text("Something went wrong");
+          } else if (snapshot.hasData){
+            return const SignInScreen();
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      )
+        //home: const SignInScreen(),
     );
   }
 }
